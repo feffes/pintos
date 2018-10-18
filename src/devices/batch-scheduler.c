@@ -68,7 +68,7 @@ void init_bus(void){
 void batchScheduler(unsigned int num_tasks_send, unsigned int num_task_receive,
         unsigned int num_priority_send, unsigned int num_priority_receive)
 {
-	printf("Spawning tasks..\n");
+	/*printf("Spawning tasks..\n");*/
 	while(num_tasks_send > 0){
 		thread_create("send", 0, senderTask, NULL);
 		num_tasks_send--;
@@ -85,7 +85,7 @@ void batchScheduler(unsigned int num_tasks_send, unsigned int num_task_receive,
 		thread_create("send", 0, receiverPriorityTask, NULL);
 		num_priority_receive--;
 	}
-	printf("Done spawning tasks\n");
+	/*printf("Done spawning tasks\n");*/
 }
 
 /* Normal task,  sending data to the accelerator */
@@ -157,7 +157,7 @@ void getSlot(task_t task)
 				}
 			}
 			sema_down(&bus_sema);
-			printf("GOT slot\n");
+			/*printf("GOT slot\n");*/
 			lock_release(&mutex);
 			break;
 		}
@@ -168,7 +168,7 @@ void getSlot(task_t task)
 /* task processes data on the bus send/receive */
 void transferData(task_t task) 
 {
-	printf("NUM OF PRIO SEND %d\n", task_s_p.value);
+	/*printf("NUM OF PRIO SEND %d\n", task_s_p.value);
 	printf("NUM OF PRIO RECIEVE %d\n", task_r_p.value);
 	if(task.direction == SENDER){
 		if(task.priority == HIGH){
@@ -182,7 +182,7 @@ void transferData(task_t task)
 		}else{
 			printf("RECIEVING DATA WITH LOW PRIO\n");
 		}
-	}
+	}*/
 }
 
 /* task releases the slot */
