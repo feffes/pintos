@@ -183,6 +183,7 @@ void transferData(task_t task)
 			printf("RECIEVING DATA WITH LOW PRIO\n");
 		}
 	}*/
+	timer_sleep(random_ulong()%30);
 }
 
 /* task releases the slot */
